@@ -1,0 +1,67 @@
+<%= form_with(model: item) do |form| %>
+  <% if item.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label(:payment_type_id, "Način plaćanja", class: "form-label") %>
+    <%= form.collection_select(
+      :payment_type_id, 
+      PaymentType.all, 
+      :id, 
+      :name, 
+      { selected: 2 }, 
+      { class: "form-select" }
+    ) %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label(:category_id, "Kategorija", class: "form-label") %>
+    <%= form.collection_select(
+      :category_ids,
+      Category.all,
+      :id,
+      :name,
+      {},
+      { multiple: true, id: "category-select" }
+    ) %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label(:name, "Naziv", class: "form-label") %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label(:amount, "Iznos", class: "form-label") %>
+    <div class="input-group">
+      <%= form.number_field :amount, class: "form-control" %>
+      <span class="input-group-text">€</span>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label(:event_date, "Datum događaja", class: "form-label") %>
+    <%= form.datetime_field :event_date, class: "form-control" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label(:payment_date, "Datum plaćanja", class: "form-label") %>
+    <%= form.datetime_field :payment_date, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit(class: "btn btn-primary", value: "Spremi") %>
+    <%= link_to "Poništi", items_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>
+
+
