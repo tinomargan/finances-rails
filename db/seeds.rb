@@ -7,3 +7,19 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+PaymentType.create(name: "Kartica")
+PaymentType.create(name: "Gotovina")
+PaymentType.create(name: "Revolut")
+PaymentType.create(name: "Prijenos na Revolut")
+PaymentType.create(name: "Podizanje gotovine")
+PaymentType.create(name: "Uplata gotovine")
+
+Category.create(name: "Cuga")
+Category.create(name: "Gorivo")
+Category.create(name: "Naknada za vođenje računa")
+Category.create(name: "Parking")
+Category.create(name: "Sjednica općinskog vijeća Općine Kostrena")
+Category.create(name: "Chasing Nord")
+Category.create(name: "Soulcase")
+Category.create(name: "Valovi")

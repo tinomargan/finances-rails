@@ -65,6 +65,15 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.expect(item: [ :payment_type_id, :name, :amount, :event_date, :payment_date, category_ids: [] ])
+      params
+        .require(:item)
+        .permit(
+          :payment_type_id,
+          :name,
+          :amount,
+          :event_date,
+          :payment_date,
+          category_ids: []
+        )
     end
 end

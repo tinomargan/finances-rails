@@ -1,31 +1,31 @@
 <div id="<%= dom_id item %>">
   <p>
-    <strong>Payment type:</strong>
-    <%= item.payment_type_id %>
+    <strong>Način plaćanja:</strong>
+    <%= item.payment_type.name %>
   </p>
 
   <p>
-    <strong>Category:</strong>
-    <%= item.category_id %>
+    <strong><%= item.categories.length > 1 ? "Kategorije:" : "Kategorija:" %></strong>
+    <%= item.categories.map(&:name).join(", ") %>
   </p>
 
   <p>
-    <strong>Name:</strong>
+    <strong>Stavka:</strong>
     <%= item.name %>
   </p>
 
   <p>
-    <strong>Amount:</strong>
+    <strong>Iznos:</strong>
     <%= item.amount %>
   </p>
 
   <p>
-    <strong>Event date:</strong>
+    <strong>Datum događaja:</strong>
     <%= item.event_date %>
   </p>
 
   <p>
-    <strong>Payment date:</strong>
+    <strong>Datum plaćanja:</strong>
     <%= item.payment_date %>
   </p>
 
