@@ -1,7 +1,9 @@
 <script>
 	$(document).ready(function() {
 		$('#category-select').select2({
-	    allowClear: false
+	    allowClear: false,
+			closeOnSelect: false,
+			selectionCssClass: 'select2-category-select'
 		});
 	});
 </script>
@@ -26,7 +28,7 @@
 			PaymentType.all, 
 			:id, 
 			:name, 
-			{ selected: 1 }, 
+			{ selected: PaymentType.find_by(name: "Kartica") }, 
 			{ class: "form-select" }
 		) %>
 	</div>
@@ -41,8 +43,8 @@
 			{ include_hidden: false },
 			{ 
 				multiple: true,
-				id: "category-select", 
-				class: "form-control"	
+				id: "category-select",
+				class: "form-select"
 			}
 		) %>
 	</div>

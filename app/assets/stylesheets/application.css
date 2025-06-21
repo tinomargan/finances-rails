@@ -8,3 +8,8 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+.select2-category-select {
+	padding: .375rem 2.25rem .375rem .75rem !important;
+	border: 1px solid #ced4da !important;
+}
