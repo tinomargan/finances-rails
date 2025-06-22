@@ -15,6 +15,11 @@ PaymentType.create(name: "Prijenos na Revolut")
 PaymentType.create(name: "Podizanje gotovine")
 PaymentType.create(name: "Uplata gotovine")
 
+TransactionType.create(name: "Prihod")
+TransactionType.create(name: "Rashod")
+TransactionType.create(name: "Prijenos")
+
+Category.create(name: "Plaća")
 Category.create(name: "Cuga")
 Category.create(name: "Gorivo")
 Category.create(name: "Naknada za vođenje računa")
