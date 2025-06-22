@@ -13,6 +13,8 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @item.event_date = Time.now.strftime('%Y.%m.%d. %I:%M:%S %p')
+    @item.payment_date = Time.now.strftime('%Y.%m.%d. %I:%M:%S %p')
   end
 
   # GET /items/1/edit

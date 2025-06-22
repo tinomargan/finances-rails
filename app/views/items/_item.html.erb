@@ -1,32 +1,31 @@
 <div id="<%= dom_id item %>">
-  <p>
-    <strong>Način plaćanja:</strong>
-    <%= item.payment_type.name %>
-  </p>
-
-  <p>
-    <strong><%= item.categories.length > 1 ? "Kategorije:" : "Kategorija:" %></strong>
-    <%= item.categories.map(&:name).join(", ") %>
-  </p>
-
-  <p>
-    <strong>Stavka:</strong>
-    <%= item.name %>
-  </p>
-
-  <p>
-    <strong>Iznos:</strong>
-    <%= item.amount %>
-  </p>
-
-  <p>
-    <strong>Datum događaja:</strong>
-    <%= item.event_date %>
-  </p>
-
-  <p>
-    <strong>Datum plaćanja:</strong>
-    <%= item.payment_date %>
-  </p>
-
+  <div class="item-content">
+    <div class="item-content-name">
+      <%#= item.name %>
+      Predstavljanje kandidacijskih lista i sučeljavanje za izbor općinskog vijeća
+    </div>
+    <div class="item-content-amount">
+      <%#= sprintf('%.2f', item.amount) %> <!--€-->
+      8,888.88 €
+    </div>
+    <div class="item-content-category">
+      <%= item.categories.map(&:name).join(", ") %>
+    </div>
+    <div class="item-content-paymentType">
+      <%#= item.payment_type.name %>
+      Prijenos na Revolut
+    </div>
+    <div class="item-content-eventDate-text">
+      Datum događaja:
+    </div>
+    <div class="item-content-eventDate">
+      <%= item.event_date.strftime('%d.%m.%Y. %I:%M:%S %p') %>
+    </div>
+    <div class="item-content-paymentDate-text">
+      Datum plaćanja:
+    </div>
+    <div class="item-content-paymentDate">
+      <%= item.payment_date.strftime('%d.%m.%Y. %I:%M:%S %p') %>
+    </div>
+  </div>
 </div>
