@@ -1,19 +1,19 @@
 <div id="<%= dom_id item %>">
   <div class="item-content">
     <div class="item-content-name">
-      <%#= item.name %>
-      Predstavljanje kandidacijskih lista i sučeljavanje za izbor općinskog vijeća
+      <%= item.name %>
     </div>
-    <div class="item-content-amount">
-      <%#= sprintf('%.2f', item.amount) %> <!--€-->
-      8,888.88 €
+    <div class="item-content-edit-img">
+      <i class="fa fa-edit"></i>
+    </div>
+    <div class="item-content-paymentType">
+      <%= item.payment_type.name %>
+    </div>
+    <div class="item-content-amount-<%= item.transaction_type.name %>">
+      <%= sprintf('%.2f', item.amount) %> €
     </div>
     <div class="item-content-category">
       <%= item.categories.map(&:name).join(", ") %>
-    </div>
-    <div class="item-content-paymentType">
-      <%#= item.payment_type.name %>
-      Prijenos na Revolut
     </div>
     <div class="item-content-eventDate-text">
       Datum događaja:

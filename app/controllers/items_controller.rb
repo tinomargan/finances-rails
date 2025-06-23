@@ -13,6 +13,15 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    if params[:transaction_type] == "income"
+      @item.transaction_type = TransactionType.find_by(name: "Prihod")
+    elsif params[:transaction_type] == "expense"
+      @item.transaction_type = TransactionType.find_by(name: "Rashod")
+    elsif params[:transaction_type] == "transfer"
+      @item.transaction_type = TransactionType.find_by(name: "Prijenos")
+    else
+      @item.errors
+    end
     @item.event_date = Time.now.strftime('%Y.%m.%d. %I:%M:%S %p')
     @item.payment_date = Time.now.strftime('%Y.%m.%d. %I:%M:%S %p')
   end
@@ -71,6 +80,7 @@ class ItemsController < ApplicationController
         .require(:item)
         .permit(
           :payment_type_id,
+          :transaction_type_id,
           :name,
           :amount,
           :event_date,

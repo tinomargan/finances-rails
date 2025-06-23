@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :items
+  resources :items do
+    get ":transaction_type", on: :new, to: "items#new", as: :new_item
+  end
   resources :categories
   resources :payment_types
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

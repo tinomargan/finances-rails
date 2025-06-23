@@ -14,27 +14,77 @@
 	border: 1px solid #ced4da !important;
 }
 
+.items-container {
+    margin-bottom: 7rem;
+}
+
 .item-content {
     height: 15rem;
     padding: 1rem;
     margin: 0.8rem 1rem;
     border-radius: 1.5rem;
-    background-color: #eaeaea;
+    background-color: #f6f6f6;
     color: black;
     display: grid;
     grid-template-rows: 17% 17% 17% 17% 16% 16%;
     grid-template-columns: 40% 10% 15% 35%;
 }
 
-.item-content-name {
+.item-content-Prihod {
+    height: 15rem;
+    padding: 1rem;
+    margin: 0.8rem 1rem;
+    border-radius: 1.5rem;
+    background-color: #f1fff4;
+    color: black;
+    display: grid;
+    grid-template-rows: 17% 17% 17% 17% 16% 16%;
+    grid-template-columns: 40% 10% 15% 35%;
+}
+
+.item-content-Rashod {
+    height: 15rem;
+    padding: 1rem;
+    margin: 0.8rem 1rem;
+    border-radius: 1.5rem;
+    background-color: #fff6f6;
+    color: black;
+    display: grid;
+    grid-template-rows: 17% 17% 17% 17% 16% 16%;
+    grid-template-columns: 40% 10% 15% 35%;
+}
+
+.item-content-Prijenos {
+    height: 15rem;
+    padding: 1rem;
+    margin: 0.8rem 1rem;
+    border-radius: 1.5rem;
+    background-color: #f6f6f6;
+    color: black;
+    display: grid;
+    grid-template-rows: 17% 17% 17% 17% 16% 16%;
+    grid-template-columns: 40% 10% 15% 35%;
+}
+
+.item-content-category {
     /* border: 1px solid red; */
     grid-row: 1/4;
     grid-column: 1/4;
 }
 
+.item-content-edit-img {
+    /* border: 1px solid red; */
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.item-content-edit-img > .fa:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 15px 6px;
+}
+
 .item-content-paymentType {
     /* border: 1px solid red; */
-    grid-row: 1/3;
+    grid-row: 2/4;
     grid-column: 4/5;
     font-size: 0.8rem;
     font-style: italic;
@@ -43,7 +93,7 @@
     align-self: self-start;
 }
 
-.item-content-amount {
+.item-content-amount-Prijenos {
     /* border: 1px solid red; */
     grid-row: 3/4;
     grid-column: 4/5;
@@ -52,12 +102,32 @@
     align-self: self-end;
 }   
 
-.item-content-category {
+.item-content-amount-Prihod {
+    /* border: 1px solid red; */
+    grid-row: 3/4;
+    grid-column: 4/5;
+    font-weight: bold;
+    text-align: right;
+    align-self: self-end;
+    color: green;
+}   
+
+.item-content-amount-Rashod {
+    /* border: 1px solid red; */
+    grid-row: 3/4;
+    grid-column: 4/5;
+    font-weight: bold;
+    text-align: right;
+    align-self: self-end;
+    color: red;
+}
+
+.item-content-name {
     /* border: 1px solid red; */
     grid-row: 4/5;
     grid-column: 1/5;
     font-size: 0.8rem;
-    align-self: center;
+    font-style: italic;
 }
 
 .item-content-eventDate-text {
@@ -104,13 +174,4 @@
     display: flex;
     justify-content: end;
     align-items: flex-end;
-}
-
-.item-content-edit-img {
-    height: 20px;
-}
-
-.item-content-edit-img:hover {
-    background-color: #cacaca;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 0 15px 6px;
 }
