@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_22_131031) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_20_215924) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.text "name"
+    t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,18 +33,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_22_131031) do
   create_table "items", force: :cascade do |t|
     t.bigint "payment_type_id", null: false
     t.bigint "transaction_type_id", null: false
-    t.text "name"
+    t.bigint "category_id", null: false
+    t.text "note"
     t.decimal "amount"
     t.datetime "event_date"
     t.datetime "payment_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["payment_type_id"], name: "index_items_on_payment_type_id"
     t.index ["transaction_type_id"], name: "index_items_on_transaction_type_id"
   end
 
   create_table "payment_types", force: :cascade do |t|
-    t.text "name"
+    t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,6 +59,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_22_131031) do
 
   add_foreign_key "item_categories", "categories"
   add_foreign_key "item_categories", "items"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "payment_types"
   add_foreign_key "items", "transaction_types"
 end

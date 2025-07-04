@@ -1,9 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :payment_type
   belongs_to :transaction_type
+  belongs_to :category
 
-  has_many :item_categories, dependent: :destroy
-  has_many :categories, through: :item_categories
-
-  validates_presence_of :name, :amount
+  validates_presence_of :amount
 end

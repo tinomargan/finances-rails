@@ -36,8 +36,8 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: "Item was successfully created." }
-        format.json { render :show, status: :created, location: @item }
+        format.html { redirect_to items_url, notice: "Item was successfully created." }
+        format.json { render :index, status: :created, location: @item }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -81,11 +81,11 @@ class ItemsController < ApplicationController
         .permit(
           :payment_type_id,
           :transaction_type_id,
-          :name,
+          :category_id,
+          :note,
           :amount,
           :event_date,
-          :payment_date,
-          category_ids: []
+          :payment_date
         )
     end
 end
