@@ -201,3 +201,21 @@
 	justify-content: end;
 	align-items: flex-end;
 }
+
+.datetime-container {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.datetime-field {
+	width: 85% !important;
+}
+
+.clear-button > .fa-xmark {
+	height: 100%;
+}
+
+.clear-button > .fa-xmark::before {
+	vertical-align: sub;
+}

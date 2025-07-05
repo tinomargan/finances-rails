@@ -1,4 +1,8 @@
 <script>
+	function clearDate() {
+		console.log($(this.event.target).parent().siblings('.datetime-field').val(''));
+	}
+
 	$(document).ready(function() {
 		$('#category-select').select2({
 			selectionCssClass: 'select2-category-select'
@@ -27,7 +31,7 @@
 			:id,
 			:name,
 			{},
-			{ 
+			{
 				id: "category-select",
 				class: "form-select"
 			}
@@ -45,7 +49,7 @@
 	<div class="mb-4">
 		<%= form.label(:payment_type_id, "Sredstvo", class: "form-label") %>
 		<%= form.collection_select(
-			:payment_type_id, 
+			:payment_type_id,
 			if item.transaction_type.name == "Prihod" || item.transaction_type.name == "Rashod"
 				PaymentType.where(name: "Kartica")
 					.or(PaymentType.where(name: "Gotovina"))
@@ -55,9 +59,9 @@
 					.or(PaymentType.where(name: "Podizanje gotovine"))
 					.or(PaymentType.where(name: "Uplata gotovine"))
 			end,
-			:id, 
-			:name, 
-			{ selected: PaymentType.find_by(name: "Kartica") }, 
+			:id,
+			:name,
+			{ selected: PaymentType.find_by(name: "Kartica") },
 			{ class: "form-select" }
 		) %>
 	</div>
@@ -69,12 +73,22 @@
 
 	<div class="mb-4">
 		<%= form.label(:event_date, "Datum događaja", class: "form-label") %>
-		<%= form.datetime_field :event_date, class: "form-control" %>
+		<div class="datetime-container">
+			<%= form.datetime_field :event_date, class: "form-control datetime-field" %>
+			<span class="clear-button">
+				<a class="btn btn-outline-secondary fa-solid fa-xmark" onclick="clearDate()"></a>
+			</span>
+		</div>
 	</div>
 
 	<div class="mb-4">
 		<%= form.label(:payment_date, "Datum plaćanja", class: "form-label") %>
-		<%= form.datetime_field :payment_date, class: "form-control" %>
+		<div class="datetime-container">
+			<%= form.datetime_field :payment_date, class: "form-control datetime-field" %>
+			<span class="clear-button">
+				<a class="btn btn-outline-secondary fa-solid fa-xmark" onclick="clearDate()"></a>
+			</span>
+		</div>
 	</div>
 
 	<div>
