@@ -27,7 +27,9 @@
 		<%= form.label(:category_id, "Kategorija", class: "form-label") %>
 		<%= form.collection_select(
 			:category_id,
-			Category.all,
+			Category.left_joins(:items)
+				.group(:id)
+				.order('COUNT(items.id) DESC, categories.name ASC'),
 			:id,
 			:name,
 			{},
@@ -91,9 +93,9 @@
 		</div>
 	</div>
 
-	<div>
-		<%= form.submit(class: "btn btn-primary", value: "Spremi") %>
+	<div class="action-button-group">
 		<%= link_to "Poništi", items_path, class: "btn btn-secondary" %>
+		<%= form.submit(class: "btn btn-primary", value: "Spremi") %>
 	</div>
 
 	<%= form.hidden_field :transaction_type_id %>

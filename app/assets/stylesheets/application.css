@@ -29,14 +29,14 @@
 
 .select2-selection__arrow:after {
 	content: "\f078";
-	font-family: "Font Awesome 6 Free";  
+	font-family: "Font Awesome 6 Free";
 	font-weight: 600;
 	font-size: 0.75rem;
 	color: #212529;
 	position: absolute;
 	top: 35%;
 	right: 0.8rem;
-	pointer-events: none;  
+	pointer-events: none;
 }
 
 .items-container {
@@ -99,12 +99,17 @@
 
 .item-content-edit-img {
 	/* border: 1px solid red; */
-	font-size: 1.2rem;
+	/* font-size: 1.2rem; */
 	text-align: right;
 }
 
-.item-content-edit-img > .fa:hover {
-	box-shadow: rgba(0, 0, 0, 0.1) 0 0 15px 6px;
+.item-content-edit-img > .edit-item-icon {
+	color: black;
+}
+
+.item-content-edit-img > .edit-item-icon > :hover {
+	box-shadow: rgba(0, 0, 0, 0.1) 0 0 15px 6px !important;
+
 }
 
 .item-content-paymentType {
@@ -125,7 +130,7 @@
 	font-weight: bold;
 	text-align: right;
 	align-self: center;
-}   
+}
 
 .item-content-amount-Prihod {
 	/* border: 1px solid red; */
@@ -135,7 +140,7 @@
 	text-align: right;
 	align-self: center;
 	color: green;
-}   
+}
 
 .item-content-amount-Rashod {
 	/* border: 1px solid red; */
@@ -218,4 +223,8 @@
 
 .clear-button > .fa-xmark::before {
 	vertical-align: sub;
+}
+
+.action-button-group {
+	text-align: right;
 }
